@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestinyItemTagger", "Destin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{74344FA9-E32B-4480-888F-29CA6F095CC4}"
 	ProjectSection(SolutionItems) = preProject
+		DestinyItemTagger\Data\PerkRecommendations.csv = DestinyItemTagger\Data\PerkRecommendations.csv
 		DestinyItemTagger\Data\PerkSets.csv = DestinyItemTagger\Data\PerkSets.csv
 	EndProjectSection
 EndProject

@@ -31,7 +31,7 @@
             this.btnGo = new System.Windows.Forms.Button();
             this.listPerkSets = new System.Windows.Forms.ListBox();
             this.listPerkReccomendations = new System.Windows.Forms.ListBox();
-            this.txtWeightTrigger = new System.Windows.Forms.TextBox();
+            this.txtPerkScoreLevel = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnGo
@@ -65,20 +65,20 @@
             this.listPerkReccomendations.Size = new System.Drawing.Size(922, 929);
             this.listPerkReccomendations.TabIndex = 2;
             // 
-            // txtWeightTrigger
+            // txtPerkScoreLevel
             // 
-            this.txtWeightTrigger.Location = new System.Drawing.Point(1314, 1121);
-            this.txtWeightTrigger.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.txtWeightTrigger.Name = "txtWeightTrigger";
-            this.txtWeightTrigger.Size = new System.Drawing.Size(308, 44);
-            this.txtWeightTrigger.TabIndex = 3;
+            this.txtPerkScoreLevel.Location = new System.Drawing.Point(1314, 1121);
+            this.txtPerkScoreLevel.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtPerkScoreLevel.Name = "txtPerkScoreLevel";
+            this.txtPerkScoreLevel.Size = new System.Drawing.Size(308, 44);
+            this.txtPerkScoreLevel.TabIndex = 3;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2301, 1232);
-            this.Controls.Add(this.txtWeightTrigger);
+            this.Controls.Add(this.txtPerkScoreLevel);
             this.Controls.Add(this.listPerkReccomendations);
             this.Controls.Add(this.listPerkSets);
             this.Controls.Add(this.btnGo);
@@ -95,7 +95,7 @@
         private System.Windows.Forms.Button btnGo;
         private System.Windows.Forms.ListBox listPerkSets;
         private System.Windows.Forms.ListBox listPerkReccomendations;
-        private System.Windows.Forms.TextBox txtWeightTrigger;
+        private System.Windows.Forms.TextBox txtPerkScoreLevel;
     }
 }
 
