@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Windows.Forms;
-using Microsoft.VisualBasic.FileIO;
 
 namespace DestinyItemTagger
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -46,7 +43,7 @@ namespace DestinyItemTagger
             foreach (string[] perkRecommendation in perkRecommendations)
             {
                 if (checkArmourForPerk(taggedArmourPiece, perkRecommendation[PerkRecommendationsNameColumn]))
-                    { perkScore = perkScore + Convert.ToInt32(perkRecommendation[PerkRecommendationsWeightColumn]); }
+                { perkScore = perkScore + Convert.ToInt32(perkRecommendation[PerkRecommendationsWeightColumn]); }
             }
             taggedArmourPiece[armourArraryPerkScoreColumn] = perkScore.ToString();
         }
@@ -60,16 +57,16 @@ namespace DestinyItemTagger
             {
                 perkSetMatch = true;
                 foreach (string perk in perkSet)
-                    { perkSetMatch = perkSetMatch & checkArmourForPerk(taggedArmourPiece, perk);  }
+                { perkSetMatch = perkSetMatch & checkArmourForPerk(taggedArmourPiece, perk); }
 
                 if (perkSetMatch)
-                    { taggedArmourPiece[matchedSetColumn] = "yes"; }
+                { taggedArmourPiece[matchedSetColumn] = "yes"; }
                 else
-                    { taggedArmourPiece[matchedSetColumn] = "no"; }
+                { taggedArmourPiece[matchedSetColumn] = "no"; }
             }
         }
 
-        private static bool checkArmourForPerk(String[] destinyArmour, string perk)
+        private static bool checkArmourForPerk(string[] destinyArmour, string perk)
         {
             const int PerkStartColumn = 23;
             const int PerkEndColumn = 34;
@@ -77,7 +74,7 @@ namespace DestinyItemTagger
             for (int perkColumn = PerkStartColumn; perkColumn < PerkEndColumn; perkColumn++)
             {
                 if (perk == destinyArmour[perkColumn].Replace("*", ""))
-                    { perkmatch = true; }
+                { perkmatch = true; }
             }
             return perkmatch;
         }
@@ -90,7 +87,7 @@ namespace DestinyItemTagger
                 importParser.TextFieldType = FieldType.Delimited;
                 importParser.SetDelimiters(",");
                 if (HasHeaderRow)
-                    { importParser.ReadFields(); }
+                { importParser.ReadFields(); }
                 string[][] dataArray = new string[0][];
                 while (!importParser.EndOfData)
                 {
