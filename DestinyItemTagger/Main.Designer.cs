@@ -36,9 +36,10 @@
             // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(30, 415);
+            this.btnGo.Location = new System.Drawing.Point(152, 1100);
+            this.btnGo.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(75, 23);
+            this.btnGo.Size = new System.Drawing.Size(238, 65);
             this.btnGo.TabIndex = 0;
             this.btnGo.Text = "Go";
             this.btnGo.UseVisualStyleBackColor = true;
@@ -47,35 +48,41 @@
             // listPerkSets
             // 
             this.listPerkSets.FormattingEnabled = true;
-            this.listPerkSets.Location = new System.Drawing.Point(48, 20);
+            this.listPerkSets.ItemHeight = 37;
+            this.listPerkSets.Location = new System.Drawing.Point(152, 57);
+            this.listPerkSets.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.listPerkSets.Name = "listPerkSets";
-            this.listPerkSets.Size = new System.Drawing.Size(266, 329);
+            this.listPerkSets.Size = new System.Drawing.Size(834, 929);
             this.listPerkSets.TabIndex = 1;
             // 
             // listPerkReccomendations
             // 
             this.listPerkReccomendations.FormattingEnabled = true;
-            this.listPerkReccomendations.Location = new System.Drawing.Point(404, 20);
+            this.listPerkReccomendations.ItemHeight = 37;
+            this.listPerkReccomendations.Location = new System.Drawing.Point(1279, 57);
+            this.listPerkReccomendations.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.listPerkReccomendations.Name = "listPerkReccomendations";
-            this.listPerkReccomendations.Size = new System.Drawing.Size(294, 329);
+            this.listPerkReccomendations.Size = new System.Drawing.Size(922, 929);
             this.listPerkReccomendations.TabIndex = 2;
             // 
             // txtWeightTrigger
             // 
-            this.txtWeightTrigger.Location = new System.Drawing.Point(415, 394);
+            this.txtWeightTrigger.Location = new System.Drawing.Point(1314, 1121);
+            this.txtWeightTrigger.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.txtWeightTrigger.Name = "txtWeightTrigger";
-            this.txtWeightTrigger.Size = new System.Drawing.Size(100, 20);
+            this.txtWeightTrigger.Size = new System.Drawing.Size(308, 44);
             this.txtWeightTrigger.TabIndex = 3;
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(2301, 1232);
             this.Controls.Add(this.txtWeightTrigger);
             this.Controls.Add(this.listPerkReccomendations);
             this.Controls.Add(this.listPerkSets);
             this.Controls.Add(this.btnGo);
+            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.Name = "Main";
             this.Text = "Form1";
             this.ResumeLayout(false);
