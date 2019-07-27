@@ -1,0 +1,10 @@
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\bin\Debug\DestinyItemTagger.exe.config
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\bin\Debug\DestinyItemTagger.exe
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\bin\Debug\DestinyItemTagger.pdb
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\obj\Debug\DestinyItemTagger.csprojAssemblyReference.cache
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\obj\Debug\DestinyItemTagger.Properties.Resources.resources
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\obj\Debug\DestinyItemTagger.csproj.GenerateResource.cache
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\obj\Debug\DestinyItemTagger.csproj.CoreCompileInputs.cache
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\obj\Debug\DestinyItemTagger.exe
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\obj\Debug\DestinyItemTagger.pdb
+C:\Users\matth\source\repos\DestinyItemTagger\DestinyItemTagger\obj\Debug\DestinyItemTagger.Main.resources

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestinyItemTagger", "DestinyItemTagger\DestinyItemTagger.csproj", "{CC29ECB1-47FE-4ACE-8260-5206D6A3A710}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{74344FA9-E32B-4480-888F-29CA6F095CC4}"
+	ProjectSection(SolutionItems) = preProject
+		DestinyItemTagger\Data\PerkSets.csv = DestinyItemTagger\Data\PerkSets.csv
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC29ECB1-47FE-4ACE-8260-5206D6A3A710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC29ECB1-47FE-4ACE-8260-5206D6A3A710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC29ECB1-47FE-4ACE-8260-5206D6A3A710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC29ECB1-47FE-4ACE-8260-5206D6A3A710}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56FB6435-0989-4DDA-BC3D-1F9D594DE954}
+	EndGlobalSection
+EndGlobal
