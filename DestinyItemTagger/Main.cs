@@ -17,10 +17,14 @@ namespace DestinyItemTagger
         private void BtnGo_Click(object sender, EventArgs e)
         {
             string[][] destinyArmourPieces = Program.LoadArrayFromCSV(@"..\..\Data\destinyArmor.csv", true);
-            string[][] perkSets = Program.LoadArrayFromCSV(@"..\..\Data\PerkSets.csv", false);
-            string[][] perkRecommendations = Program.LoadArrayFromCSV(@"..\..\Data\PerkRecommendations.csv", false);
+            string[][] armourPerkSets = Program.LoadArrayFromCSV(@"..\..\Data\ArmourPerkSets.csv", false);
+            string[][] armourPerkRecommendations = Program.LoadArrayFromCSV(@"..\..\Data\ArmourPerkRecommendations.csv", false);
+            string[][] taggedArmourList = Program.TagItems(destinyArmourPieces, armourPerkSets, armourPerkRecommendations);
 
-            string[][] taggedArmourList = Program.TagArmour(destinyArmourPieces, perkSets, perkRecommendations);
+            string[][] destinyWeapons = Program.LoadArrayFromCSV(@"..\..\Data\destinyWeapons.csv", true);
+            string[][] weaponPerkSets = Program.LoadArrayFromCSV(@"..\..\Data\WeaponPerkSets.csv", false);
+            string[][] weaponPerkRecommendations = Program.LoadArrayFromCSV(@"..\..\Data\WeaponPerkRecommendations.csv", false);
+            string[][] taggedWeaponList = Program.TagItems(destinyWeapons, weaponPerkSets, weaponPerkRecommendations);
         }
     }
 }

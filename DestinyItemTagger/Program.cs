@@ -10,28 +10,28 @@ namespace DestinyItemTagger
 
     internal static class Program
     {
-        public static string[][] TagArmour(
-                string[][] destinyArmourPieces,
+        public static string[][] TagItems(
+                string[][] destinyItems,
                 string[][] perkSets,
                 string[][] perkRecommendations)
         {
-            string[][] taggedArmourPieces = Array.Empty<string[]>();
-            foreach (string[] destinyArmourPiece in destinyArmourPieces)
+            string[][] taggedItems = Array.Empty<string[]>();
+            foreach (string[] destinyItem in destinyItems)
             {
-                string[] taggedArmourPiece = destinyArmourPiece;
-                Array.Resize(ref taggedArmourPiece, taggedArmourPiece.Length + 2);
+                string[] taggedItem = destinyItem;
+                Array.Resize(ref taggedItem, taggedItem.Length + 2);
 
-                CheckArmourForPerkSets(ref taggedArmourPiece, perkSets);
-                CheckArmourForRecomendedPerks(ref taggedArmourPiece, perkRecommendations);
+                CheckForPerkSets(ref taggedItem, perkSets);
+                CheckForRecomendedPerks(ref taggedItem, perkRecommendations);
 
-                Array.Resize(ref taggedArmourPieces, taggedArmourPieces.Length + 1);
-                taggedArmourPieces[taggedArmourPieces.Length - 1] = taggedArmourPiece;
+                Array.Resize(ref taggedItems, taggedItems.Length + 1);
+                taggedItems[taggedItems.Length - 1] = taggedItem;
             }
 
-            return taggedArmourPieces;
+            return taggedItems;
         }
 
-        public static void CheckArmourForRecomendedPerks(ref string[] taggedArmourPiece, string[][] perkRecommendations)
+        public static void CheckForRecomendedPerks(ref string[] taggedArmourPiece, string[][] perkRecommendations)
         {
             const int armourArraryPerkScoreColumn = 36;
             const int PerkRecommendationsNameColumn = 0;
@@ -39,7 +39,7 @@ namespace DestinyItemTagger
             int perkScore = 0;
             foreach (string[] perkRecommendation in perkRecommendations)
             {
-                if (CheckArmourForPerk(taggedArmourPiece, perkRecommendation[PerkRecommendationsNameColumn]))
+                if (CheckForPerk(taggedArmourPiece, perkRecommendation[PerkRecommendationsNameColumn]))
                 {
                     perkScore += Convert.ToInt32(perkRecommendation[PerkRecommendationsWeightColumn]);
                 }
@@ -48,7 +48,7 @@ namespace DestinyItemTagger
             taggedArmourPiece[armourArraryPerkScoreColumn] = perkScore.ToString();
         }
 
-        public static void CheckArmourForPerkSets(ref string[] taggedArmourPiece, string[][] perkSets)
+        public static void CheckForPerkSets(ref string[] taggedArmourPiece, string[][] perkSets)
         {
             const int matchedSetColumn = 35;
             bool perkSetMatch;
@@ -57,7 +57,7 @@ namespace DestinyItemTagger
                 perkSetMatch = true;
                 foreach (string perk in perkSet)
                 {
-                    perkSetMatch = perkSetMatch & CheckArmourForPerk(taggedArmourPiece, perk);
+                    perkSetMatch = perkSetMatch & CheckForPerk(taggedArmourPiece, perk);
                 }
 
                 if (perkSetMatch)
@@ -96,7 +96,7 @@ namespace DestinyItemTagger
             }
         }
 
-        private static bool CheckArmourForPerk(string[] destinyArmour, string perk)
+        private static bool CheckForPerk(string[] destinyArmour, string perk)
         {
             const int PerkStartColumn = 23;
             const int PerkEndColumn = 34;
