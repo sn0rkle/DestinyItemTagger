@@ -5,12 +5,25 @@
 namespace DestinyItemTagger
 {
     using System;
+    using System.Globalization;
     using System.Windows.Forms;
     using Microsoft.VisualBasic.FileIO;
 
+    /// <summary>
+    /// Main Program.
+    /// </summary>
     internal static class Program
     {
+        /// <summary>
+        /// Tags items.
+        /// </summary>
+        /// <param name="itemType">Armour or Weapon.</param>
+        /// <param name="destinyItems">Array of items.</param>
+        /// <param name="perkSets">Array of perks.</param>
+        /// <param name="perkRecommendations">Array of Recommendations.</param>
+        /// <returns>Array of tagged items.</returns>
         public static string[][] TagItems(
+                string itemType,
                 string[][] destinyItems,
                 string[][] perkSets,
                 string[][] perkRecommendations)
@@ -21,8 +34,8 @@ namespace DestinyItemTagger
                 string[] taggedItem = destinyItem;
                 Array.Resize(ref taggedItem, taggedItem.Length + 2);
 
-                CheckForPerkSets(ref taggedItem, perkSets);
-                CheckForRecomendedPerks(ref taggedItem, perkRecommendations);
+                CheckForPerkSets(itemType, ref taggedItem, perkSets);
+                CheckForRecomendedPerks(itemType, ref taggedItem, perkRecommendations);
 
                 Array.Resize(ref taggedItems, taggedItems.Length + 1);
                 taggedItems[taggedItems.Length - 1] = taggedItem;
@@ -31,46 +44,12 @@ namespace DestinyItemTagger
             return taggedItems;
         }
 
-        public static void CheckForRecomendedPerks(ref string[] taggedArmourPiece, string[][] perkRecommendations)
-        {
-            const int armourArraryPerkScoreColumn = 36;
-            const int PerkRecommendationsNameColumn = 0;
-            const int PerkRecommendationsWeightColumn = 2;
-            int perkScore = 0;
-            foreach (string[] perkRecommendation in perkRecommendations)
-            {
-                if (CheckForPerk(taggedArmourPiece, perkRecommendation[PerkRecommendationsNameColumn]))
-                {
-                    perkScore += Convert.ToInt32(perkRecommendation[PerkRecommendationsWeightColumn]);
-                }
-            }
-
-            taggedArmourPiece[armourArraryPerkScoreColumn] = perkScore.ToString();
-        }
-
-        public static void CheckForPerkSets(ref string[] taggedArmourPiece, string[][] perkSets)
-        {
-            const int matchedSetColumn = 35;
-            bool perkSetMatch;
-            foreach (string[] perkSet in perkSets)
-            {
-                perkSetMatch = true;
-                foreach (string perk in perkSet)
-                {
-                    perkSetMatch = perkSetMatch & CheckForPerk(taggedArmourPiece, perk);
-                }
-
-                if (perkSetMatch)
-                {
-                    taggedArmourPiece[matchedSetColumn] = "yes";
-                }
-                else
-                {
-                    taggedArmourPiece[matchedSetColumn] = "no";
-                }
-            }
-        }
-
+        /// <summary>
+        /// Load CSVFile.
+        /// </summary>
+        /// <param name="csvLocation">File location.</param>
+        /// <param name="hasHeaderRow">Ignore first line.</param>
+        /// <returns>Array of arrays.</returns>
         public static string[][] LoadArrayFromCSV(
             string csvLocation,
             bool hasHeaderRow)
@@ -93,6 +72,55 @@ namespace DestinyItemTagger
                 }
 
                 return dataArray;
+            }
+        }
+
+        private static void CheckForRecomendedPerks(string itemType, ref string[] taggedItem, string[][] perkRecommendations)
+        {
+            int perkScoreColumn;
+            if (itemType == "Armour")
+            {
+                perkScoreColumn = 36;
+            }
+            else
+            {
+                perkScoreColumn = 39;
+            }
+
+            const int PerkRecommendationsNameColumn = 0;
+            const int PerkRecommendationsScoreColumn = 1;
+            int perkScore = 0;
+            foreach (string[] perkRecommendation in perkRecommendations)
+            {
+                if (CheckForPerk(taggedItem, perkRecommendation[PerkRecommendationsNameColumn]))
+                {
+                    perkScore += Convert.ToInt32(perkRecommendation[PerkRecommendationsScoreColumn], CultureInfo.InvariantCulture);
+                }
+            }
+
+            taggedItem[perkScoreColumn] = perkScore.ToString(CultureInfo.InvariantCulture);
+        }
+
+        private static void CheckForPerkSets(string itemType, ref string[] taggedItem, string[][] perkSets)
+        {
+            const int matchedSetColumn = 35;
+            bool perkSetMatch;
+            foreach (string[] perkSet in perkSets)
+            {
+                perkSetMatch = true;
+                foreach (string perk in perkSet)
+                {
+                    perkSetMatch = perkSetMatch & CheckForPerk(taggedItem, perk);
+                }
+
+                if (perkSetMatch)
+                {
+                    taggedItem[matchedSetColumn] = "yes";
+                }
+                else
+                {
+                    taggedItem[matchedSetColumn] = "no";
+                }
             }
         }
 
