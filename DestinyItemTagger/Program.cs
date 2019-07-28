@@ -16,6 +16,8 @@
         private const int PerkRecommendationsNameColumn = 1;
         private const int PerkRecommendationsScoreColumn = 2;
         private const int ItemTypeColumn = 5;
+        private const int ItemArmourPowerLevelColumn = 8;
+        private const int ItemWeaponPowerLevelColumn = 7;
         private const int ItemPerkStartColumn = 5;
         private const int ItemPerkEndOffset = 4;
         private const int ItemTagOffset = 3;
@@ -61,6 +63,8 @@
         /// Tags items.
         /// </summary>
         /// <param name="destinyItems">Array of items.</param>
+        /// <param name="itemType">Type of items in the list.</param>
+        /// <param name="powerLevel">Current Power Level.</param>
         /// <param name="perkSets">Array of perks.</param>
         /// <param name="typedPerkSet">Is the perk set type specific.</param>
         /// <param name="perkRecommendations">Array of Recommendations.</param>
@@ -68,6 +72,8 @@
         /// <returns>Array of tagged items.</returns>
         public static string[][] TagItems(
                 string[][] destinyItems,
+                string itemType,
+                string powerLevel,
                 string[][] perkSets,
                 bool typedPerkSet,
                 string[][] perkRecommendations,
@@ -76,6 +82,11 @@
             if (destinyItems is null)
             {
                 throw new ArgumentNullException(nameof(destinyItems));
+            }
+
+            if (powerLevel is null)
+            {
+                throw new ArgumentNullException(nameof(powerLevel));
             }
 
             if (perkSets is null)
@@ -97,6 +108,9 @@
                 Array.Resize(ref taggedItem, taggedItem.Length + 3);
                 taggedItem[taggedItem.Length - 3] = string.Empty;
 
+                // Check the item power level for infusion
+                CheckForInfusion(ref taggedItem, itemType, powerLevel);
+
                 // Check the items perk recommendation score
                 CheckForRecomendedPerks(ref taggedItem, perkRecommendations, perkScoreTagLevel);
 
@@ -109,6 +123,25 @@
             }
 
             return taggedItems;
+        }
+
+        private static void CheckForInfusion(ref string[] taggedItem, string itemType, string powerLevel)
+        {
+            int itemPowerLevelColumn = 0;
+            if (itemType == "Armour")
+            {
+                itemPowerLevelColumn = ItemArmourPowerLevelColumn;
+            }
+            else if (itemType == "Weapon")
+            {
+                itemPowerLevelColumn = ItemWeaponPowerLevelColumn;
+            }
+
+            if (Convert.ToInt32(taggedItem[itemPowerLevelColumn], CultureInfo.InvariantCulture) >= Convert.ToInt32(powerLevel, CultureInfo.InvariantCulture))
+            {
+                int perkTagColumn = taggedItem.Length - ItemTagOffset;
+                taggedItem[perkTagColumn] = "infuse";
+            }
         }
 
         private static void CheckForRecomendedPerks(ref string[] taggedItem, string[][] perkRecommendations, int perkScoreTagLevel)
