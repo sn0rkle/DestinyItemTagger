@@ -92,7 +92,7 @@
             taggedItem[perkScoreColumn] = perkScore.ToString(CultureInfo.InvariantCulture);
             if (perkScore >= perkScoreTagLevel)
             {
-                taggedItem[perkTagColumn] = "PerkScore";
+                taggedItem[perkTagColumn] = "keep";
             }
         }
 
@@ -128,7 +128,7 @@
                 if (perkSetMatch)
                 {
                     taggedItem[perkSetColumn] = "yes";
-                    taggedItem[perkTagColumn] = "PerkSet";
+                    taggedItem[perkTagColumn] = "favorite";
                 }
             }
         }

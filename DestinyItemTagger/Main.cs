@@ -69,9 +69,15 @@
         {
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"dimImport.csv"))
             {
+                file.WriteLine("Hash,Id,Tag,Notes");
+                foreach (string[] taggedArmour in this.taggedArmourList)
+                {
+                    file.WriteLine(taggedArmour[1] + "," + taggedArmour[2] + "," + taggedArmour[taggedArmour.Length - 3] + "," + taggedArmour[22]);
+                }
+
                 foreach (string[] taggedWeapon in this.taggedWeaponList)
                 {
-                    file.WriteLine(taggedWeapon[1] + "," + taggedWeapon[2] + "," + taggedWeapon[taggedWeapon.Length - 3] + "," + taggedWeapon[22]);
+                    file.WriteLine(taggedWeapon[1] + "," + taggedWeapon[2] + "," + taggedWeapon[taggedWeapon.Length - 3] + "," + taggedWeapon[31]);
                 }
             }
 
