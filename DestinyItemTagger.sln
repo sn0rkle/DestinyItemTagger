@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{74344FA9-E
 		DestinyItemTagger\Data\WeaponPerkSets.csv = DestinyItemTagger\Data\WeaponPerkSets.csv
 	EndProjectSection
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DestinyItemTaggerSetup", "DestinyItemTaggerSetup\DestinyItemTaggerSetup.vdproj", "{FC5DD924-0752-4BBF-96EF-6EA3FCCB32D8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestinyItemTaggerTests", "DestinyItemTaggerTests\DestinyItemTaggerTests.csproj", "{D7CD7E56-1D1C-42E0-A782-54E774C41AF5}"
 EndProject
 Global
@@ -27,9 +25,6 @@ Global
 		{CC29ECB1-47FE-4ACE-8260-5206D6A3A710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC29ECB1-47FE-4ACE-8260-5206D6A3A710}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC29ECB1-47FE-4ACE-8260-5206D6A3A710}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC5DD924-0752-4BBF-96EF-6EA3FCCB32D8}.Debug|Any CPU.ActiveCfg = Debug
-		{FC5DD924-0752-4BBF-96EF-6EA3FCCB32D8}.Release|Any CPU.ActiveCfg = Release
-		{FC5DD924-0752-4BBF-96EF-6EA3FCCB32D8}.Release|Any CPU.Build.0 = Release
 		{D7CD7E56-1D1C-42E0-A782-54E774C41AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D7CD7E56-1D1C-42E0-A782-54E774C41AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7CD7E56-1D1C-42E0-A782-54E774C41AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
