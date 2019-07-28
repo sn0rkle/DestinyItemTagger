@@ -7,6 +7,8 @@ For weapons these Perk Sets are weapon type specific, for amour they are not.
 
 You can give perks a score and items will be tagged in DIM as "Keep" if the score of all the perks on an item is equal to or above a specified level.  The armour and weapon perk scores are item type specific.
 
+The application and some example perk spreadsheets based on common reddit wisdom can be downloaded from the DestinyItemTagger.zip above.
+
 Usage
 1. Go to settings in DIM and scroll to the spreadsheets section at the bottom
 2. Export destinyWeapons.csv and destinyArmour.csv then place them in the same folder as the app
