@@ -19,4 +19,5 @@ Usage
 7. Click Export and a new file dimImport.csv will be created in the application folder
 8. Go back to the spreadsheet section in DIM and import the dimImport.csv file
 9. Use a dim filter to show the items for dismantlement "tag:none -is:exotic -is:masterwork"
-10.Enjoy!
+
+Enjoy!
