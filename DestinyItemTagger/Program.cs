@@ -78,14 +78,38 @@
                 string[] taggedItem = destinyItem;
                 Array.Resize(ref taggedItem, taggedItem.Length + 3);
                 taggedItem[taggedItem.Length - 3] = string.Empty;
-                CheckForPerkSets(ref taggedItem, perkSets, typedPerkSet);
                 CheckForRecomendedPerks(ref taggedItem, perkRecommendations, perkScoreTagLevel);
+                CheckForPerkSets(ref taggedItem, perkSets, typedPerkSet);
 
                 Array.Resize(ref taggedItems, taggedItems.Length + 1);
                 taggedItems[taggedItems.Length - 1] = taggedItem;
             }
 
             return taggedItems;
+        }
+
+        private static void CheckForRecomendedPerks(ref string[] taggedItem, string[][] perkRecommendations, int perkScoreTagLevel)
+        {
+            const int PerkRecommendationsTypeColumn = 0;
+            const int PerkRecommendationsNameColumn = 1;
+            const int PerkRecommendationsScoreColumn = 2;
+            int perkScore = 0;
+
+            foreach (string[] perkRecommendation in perkRecommendations)
+            {
+                if (CheckForPerk(taggedItem, perkRecommendation[PerkRecommendationsTypeColumn], perkRecommendation[PerkRecommendationsNameColumn]))
+                {
+                    perkScore += Convert.ToInt32(perkRecommendation[PerkRecommendationsScoreColumn], CultureInfo.InvariantCulture);
+                }
+            }
+
+            int perkScoreColumn = taggedItem.Length - 1;
+            int perkTagColumn = taggedItem.Length - 3;
+            taggedItem[perkScoreColumn] = perkScore.ToString(CultureInfo.InvariantCulture);
+            if (perkScore >= perkScoreTagLevel)
+            {
+                taggedItem[perkTagColumn] = "keep";
+            }
         }
 
         private static void CheckForPerkSets(ref string[] taggedItem, string[][] perkSets, bool typedPerkSet)
@@ -122,30 +146,6 @@
                     taggedItem[perkSetColumn] = "yes";
                     taggedItem[perkTagColumn] = "favorite";
                 }
-            }
-        }
-
-        private static void CheckForRecomendedPerks(ref string[] taggedItem, string[][] perkRecommendations, int perkScoreTagLevel)
-        {
-            const int PerkRecommendationsTypeColumn = 0;
-            const int PerkRecommendationsNameColumn = 1;
-            const int PerkRecommendationsScoreColumn = 2;
-            int perkScore = 0;
-
-            foreach (string[] perkRecommendation in perkRecommendations)
-            {
-                if (CheckForPerk(taggedItem, perkRecommendation[PerkRecommendationsTypeColumn], perkRecommendation[PerkRecommendationsNameColumn]))
-                {
-                    perkScore += Convert.ToInt32(perkRecommendation[PerkRecommendationsScoreColumn], CultureInfo.InvariantCulture);
-                }
-            }
-
-            int perkScoreColumn = taggedItem.Length - 1;
-            int perkTagColumn = taggedItem.Length - 3;
-            taggedItem[perkScoreColumn] = perkScore.ToString(CultureInfo.InvariantCulture);
-            if (perkScore >= perkScoreTagLevel)
-            {
-                taggedItem[perkTagColumn] = "keep";
             }
         }
 
