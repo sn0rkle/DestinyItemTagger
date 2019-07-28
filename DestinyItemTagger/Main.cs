@@ -4,7 +4,7 @@
     using System.Windows.Forms;
 
     /// <summary>
-    /// Main Class.
+    /// Main Class..
     /// </summary>
     public partial class Main : Form
     {
