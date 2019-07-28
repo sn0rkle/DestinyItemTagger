@@ -15,6 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{74344FA9-E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestinyItemTaggerTests", "DestinyItemTaggerTests\DestinyItemTaggerTests.csproj", "{D7CD7E56-1D1C-42E0-A782-54E774C41AF5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distribution", "Distribution", "{2BEF361D-E64C-41B2-AE22-9745B06A7C38}"
+	ProjectSection(SolutionItems) = preProject
+		DestinyItemTagger.zip = DestinyItemTagger.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
