@@ -6,30 +6,46 @@
     using Microsoft.VisualBasic.FileIO;
 
     /// <summary>
-    /// Main Program.
+    /// Main Program, hold the main perk matching functions used by the UI.
     /// </summary>
     public static class Program
     {
+        // Setup various column locations for data we need to get at
+        private const int PerkSetTypeColumn = 0;
+        private const int PerkRecommendationsTypeColumn = 0;
+        private const int PerkRecommendationsNameColumn = 1;
+        private const int PerkRecommendationsScoreColumn = 2;
+        private const int ItemTypeColumn = 5;
+        private const int ItemPerkStartColumn = 5;
+        private const int ItemPerkEndOffset = 4;
+        private const int ItemTagOffset = 3;
+        private const int ItemPerkSetStatusOffset = 2;
+        private const int ItemPerkRecommendationScoreOffset = 1;
+
         /// <summary>
-        /// Load CSVFile.
+        /// Small helper routint the UI uses to load csv files into arrays.
         /// </summary>
-        /// <param name="csvLocation">File location.</param>
+        /// <param name="csvLocation">CSV file location.</param>
         /// <param name="hasHeaderRow">Ignore first line.</param>
-        /// <returns>Array of arrays.</returns>
+        /// <returns>Jagged array loaded from the csv file.</returns>
         public static string[][] LoadArrayFromCSV(
             string csvLocation,
             bool hasHeaderRow)
         {
             using (TextFieldParser importParser = new TextFieldParser(csvLocation))
             {
+                // Setup the file format
                 importParser.CommentTokens = new string[] { "#" };
                 importParser.TextFieldType = FieldType.Delimited;
                 importParser.SetDelimiters(",");
+
+                // Skip header row if needed.
                 if (hasHeaderRow)
                 {
                     importParser.ReadFields();
                 }
 
+                // Load the file into a jagged array a line at a time.
                 string[][] dataArray = Array.Empty<string[]>();
                 while (!importParser.EndOfData)
                 {
@@ -72,15 +88,22 @@
                 throw new ArgumentNullException(nameof(perkRecommendations));
             }
 
+            // Check each item
             string[][] taggedItems = Array.Empty<string[]>();
             foreach (string[] destinyItem in destinyItems)
             {
+                // Take a copy of the item and add 3 columns to store the tag, perk set match status and perk recomendation score
                 string[] taggedItem = destinyItem;
                 Array.Resize(ref taggedItem, taggedItem.Length + 3);
                 taggedItem[taggedItem.Length - 3] = string.Empty;
+
+                // Check the items perk recommendation score
                 CheckForRecomendedPerks(ref taggedItem, perkRecommendations, perkScoreTagLevel);
+
+                // Check if the item has a perk set
                 CheckForPerkSets(ref taggedItem, perkSets, typedPerkSet);
 
+                // Finaly, Add the item to the array to be returned
                 Array.Resize(ref taggedItems, taggedItems.Length + 1);
                 taggedItems[taggedItems.Length - 1] = taggedItem;
             }
@@ -90,60 +113,68 @@
 
         private static void CheckForRecomendedPerks(ref string[] taggedItem, string[][] perkRecommendations, int perkScoreTagLevel)
         {
-            const int PerkRecommendationsTypeColumn = 0;
-            const int PerkRecommendationsNameColumn = 1;
-            const int PerkRecommendationsScoreColumn = 2;
+            // Go through each recommended perk.
             int perkScore = 0;
-
             foreach (string[] perkRecommendation in perkRecommendations)
             {
+                // To see if we can find it.
                 if (CheckForPerk(taggedItem, perkRecommendation[PerkRecommendationsTypeColumn], perkRecommendation[PerkRecommendationsNameColumn]))
                 {
+                    // And add its score onto the total if we can.
                     perkScore += Convert.ToInt32(perkRecommendation[PerkRecommendationsScoreColumn], CultureInfo.InvariantCulture);
                 }
             }
 
-            int perkScoreColumn = taggedItem.Length - 1;
-            int perkTagColumn = taggedItem.Length - 3;
+            // Set the items perk recommendation score
+            int perkScoreColumn = taggedItem.Length - ItemPerkRecommendationScoreOffset;
             taggedItem[perkScoreColumn] = perkScore.ToString(CultureInfo.InvariantCulture);
+
+            // If the item exceeds that score level, tag it as a keeper.
             if (perkScore >= perkScoreTagLevel)
             {
+                int perkTagColumn = taggedItem.Length - ItemTagOffset;
                 taggedItem[perkTagColumn] = "keep";
             }
         }
 
         private static void CheckForPerkSets(ref string[] taggedItem, string[][] perkSets, bool typedPerkSet)
         {
-            const int PerkRecommendationsTypeColumn = 0;
-            const int PerkTypeColumn = 5;
-            bool perkSetMatch;
-            string perkSetType;
-
+            // Go through each perk set
             foreach (string[] perkSet in perkSets)
             {
+                // Check if we need to match the type of the item as well as the perk
+                string perkSetType;
                 if (typedPerkSet)
                 {
-                    perkSetType = perkSet[PerkRecommendationsTypeColumn];
+                    // We need to match the item type so use the item type from the perk set
+                    perkSetType = perkSet[PerkSetTypeColumn];
                 }
                 else
                 {
-                    perkSetType = taggedItem[PerkTypeColumn];
+                    // We do not need to match the item type so use the items own type to ensure a match
+                    perkSetType = taggedItem[ItemTypeColumn];
                 }
 
-                perkSetMatch = true;
+                // Check each perk in the perk set
+                bool perkSetMatch = true;
                 foreach (string perk in perkSet)
                 {
                     if (perk != perkSetType)
                     {
+                        // Use a boolean AND to ensure that perkSetMatch will remain true only while all the perks in the set continue to be found
                         perkSetMatch = perkSetMatch & CheckForPerk(taggedItem, perkSetType, perk);
                     }
                 }
 
-                int perkSetColumn = taggedItem.Length - 2;
-                int perkTagColumn = taggedItem.Length - 3;
+                // Check if all the perks in the set matched
                 if (perkSetMatch)
                 {
+                    // Set the perk set status column.
+                    int perkSetColumn = taggedItem.Length - ItemPerkSetStatusOffset;
                     taggedItem[perkSetColumn] = "yes";
+
+                    // Apply the favorite tag.
+                    int perkTagColumn = taggedItem.Length - ItemTagOffset;
                     taggedItem[perkTagColumn] = "favorite";
                 }
             }
@@ -151,14 +182,12 @@
 
         private static bool CheckForPerk(string[] destinyItem, string type, string perk)
         {
-            int perkTypeColumn = 5;
-            int perkStartColumn = 6;
-            int perkEndColumn = destinyItem.Length - 3;
-
+            // Go through each perk on the item
             bool perkmatch = false;
-            for (int perkColumn = perkStartColumn; perkColumn < perkEndColumn; perkColumn++)
+            for (int perkColumn = ItemPerkStartColumn; perkColumn < destinyItem.Length - ItemPerkEndOffset; perkColumn++)
             {
-                if (type == destinyItem[perkTypeColumn] && perk == destinyItem[perkColumn].Replace("*", string.Empty))
+                // Check if it matches the required perk
+                if (type == destinyItem[ItemTypeColumn] && perk == destinyItem[perkColumn].Replace("*", string.Empty))
                 {
                     perkmatch = true;
                 }
