@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_162AF3CBB39B7D979E50CE150D4D50C3"
-        "OwnerKey" = "8:_B0B30D12959343EA9B37D88B7594ED0B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_5571104FA1A547A6A61D5CD2CA15A459"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -47,12 +41,6 @@
         {
         "MsmKey" = "8:_BE7752AD27AB4638BA5FBD87BBA354A0"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_162AF3CBB39B7D979E50CE150D4D50C3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -85,7 +73,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\DestinyItemTaggerSetup.msi"
+        "OutputFilename" = "8:..\\DestinyItemTaggerSetup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -124,37 +112,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_162AF3CBB39B7D979E50CE150D4D50C3"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                    "_162AF3CBB39B7D979E50CE150D4D50C3"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_7EE7DAEB78944935BAFAFE549D0AE5BE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5571104FA1A547A6A61D5CD2CA15A459"
             {
             "SourcePath" = "8:..\\DestinyItemTagger\\Data\\ArmourPerkSets.csv"
@@ -292,7 +249,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DestinyItemTaggerSetup"
         "ProductCode" = "8:{BB50691F-9473-47CB-B5AF-2F476E314206}"
-        "PackageCode" = "8:{1FB43DA9-7AB1-4F84-B3CE-E75CF06481B1}"
+        "PackageCode" = "8:{85E3479C-1BA9-4153-A902-2E9FDFB51AA2}"
         "UpgradeCode" = "8:{6B7742E3-7BA5-4E26-9F04-2405BB69EC36}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -813,7 +770,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B0B30D12959343EA9B37D88B7594ED0B"
             {
-            "SourcePath" = "8:..\\DestinyItemTagger\\obj\\Debug\\DestinyItemTagger.exe"
+            "SourcePath" = "8:..\\DestinyItemTagger\\obj\\Release\\DestinyItemTagger.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7EE7DAEB78944935BAFAFE549D0AE5BE"
