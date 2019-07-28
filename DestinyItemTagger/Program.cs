@@ -8,40 +8,8 @@
     /// <summary>
     /// Main Program.
     /// </summary>
-    internal static class Program
+    public static class Program
     {
-        /// <summary>
-        /// Tags items.
-        /// </summary>
-        /// <param name="destinyItems">Array of items.</param>
-        /// <param name="perkSets">Array of perks.</param>
-        /// <param name="typedPerkSet">Is the perk set type specific.</param>
-        /// <param name="perkRecommendations">Array of Recommendations.</param>
-        /// <param name="perkScoreTagLevel">Tag above this score.</param>
-        /// <returns>Array of tagged items.</returns>
-        public static string[][] TagItems(
-                string[][] destinyItems,
-                string[][] perkSets,
-                bool typedPerkSet,
-                string[][] perkRecommendations,
-                int perkScoreTagLevel)
-        {
-            string[][] taggedItems = Array.Empty<string[]>();
-            foreach (string[] destinyItem in destinyItems)
-            {
-                string[] taggedItem = destinyItem;
-                Array.Resize(ref taggedItem, taggedItem.Length + 3);
-                taggedItem[taggedItem.Length - 3] = string.Empty;
-                CheckForPerkSets(ref taggedItem, perkSets, typedPerkSet);
-                CheckForRecomendedPerks(ref taggedItem, perkRecommendations, perkScoreTagLevel);
-
-                Array.Resize(ref taggedItems, taggedItems.Length + 1);
-                taggedItems[taggedItems.Length - 1] = taggedItem;
-            }
-
-            return taggedItems;
-        }
-
         /// <summary>
         /// Load CSVFile.
         /// </summary>
@@ -73,27 +41,51 @@
             }
         }
 
-        private static void CheckForRecomendedPerks(ref string[] taggedItem, string[][] perkRecommendations, int perkScoreTagLevel)
+        /// <summary>
+        /// Tags items.
+        /// </summary>
+        /// <param name="destinyItems">Array of items.</param>
+        /// <param name="perkSets">Array of perks.</param>
+        /// <param name="typedPerkSet">Is the perk set type specific.</param>
+        /// <param name="perkRecommendations">Array of Recommendations.</param>
+        /// <param name="perkScoreTagLevel">Tag above this score.</param>
+        /// <returns>Array of tagged items.</returns>
+        public static string[][] TagItems(
+                string[][] destinyItems,
+                string[][] perkSets,
+                bool typedPerkSet,
+                string[][] perkRecommendations,
+                int perkScoreTagLevel)
         {
-            const int PerkRecommendationsTypeColumn = 0;
-            const int PerkRecommendationsNameColumn = 1;
-            const int PerkRecommendationsScoreColumn = 2;
-            int perkScore = 0;
-            foreach (string[] perkRecommendation in perkRecommendations)
+            if (destinyItems is null)
             {
-                if (CheckForPerk(taggedItem, perkRecommendation[PerkRecommendationsTypeColumn], perkRecommendation[PerkRecommendationsNameColumn]))
-                {
-                    perkScore += Convert.ToInt32(perkRecommendation[PerkRecommendationsScoreColumn], CultureInfo.InvariantCulture);
-                }
+                throw new ArgumentNullException(nameof(destinyItems));
             }
 
-            int perkScoreColumn = taggedItem.Length - 1;
-            int perkTagColumn = taggedItem.Length - 3;
-            taggedItem[perkScoreColumn] = perkScore.ToString(CultureInfo.InvariantCulture);
-            if (perkScore >= perkScoreTagLevel)
+            if (perkSets is null)
             {
-                taggedItem[perkTagColumn] = "keep";
+                throw new ArgumentNullException(nameof(perkSets));
             }
+
+            if (perkRecommendations is null)
+            {
+                throw new ArgumentNullException(nameof(perkRecommendations));
+            }
+
+            string[][] taggedItems = Array.Empty<string[]>();
+            foreach (string[] destinyItem in destinyItems)
+            {
+                string[] taggedItem = destinyItem;
+                Array.Resize(ref taggedItem, taggedItem.Length + 3);
+                taggedItem[taggedItem.Length - 3] = string.Empty;
+                CheckForPerkSets(ref taggedItem, perkSets, typedPerkSet);
+                CheckForRecomendedPerks(ref taggedItem, perkRecommendations, perkScoreTagLevel);
+
+                Array.Resize(ref taggedItems, taggedItems.Length + 1);
+                taggedItems[taggedItems.Length - 1] = taggedItem;
+            }
+
+            return taggedItems;
         }
 
         private static void CheckForPerkSets(ref string[] taggedItem, string[][] perkSets, bool typedPerkSet)
@@ -130,6 +122,30 @@
                     taggedItem[perkSetColumn] = "yes";
                     taggedItem[perkTagColumn] = "favorite";
                 }
+            }
+        }
+
+        private static void CheckForRecomendedPerks(ref string[] taggedItem, string[][] perkRecommendations, int perkScoreTagLevel)
+        {
+            const int PerkRecommendationsTypeColumn = 0;
+            const int PerkRecommendationsNameColumn = 1;
+            const int PerkRecommendationsScoreColumn = 2;
+            int perkScore = 0;
+
+            foreach (string[] perkRecommendation in perkRecommendations)
+            {
+                if (CheckForPerk(taggedItem, perkRecommendation[PerkRecommendationsTypeColumn], perkRecommendation[PerkRecommendationsNameColumn]))
+                {
+                    perkScore += Convert.ToInt32(perkRecommendation[PerkRecommendationsScoreColumn], CultureInfo.InvariantCulture);
+                }
+            }
+
+            int perkScoreColumn = taggedItem.Length - 1;
+            int perkTagColumn = taggedItem.Length - 3;
+            taggedItem[perkScoreColumn] = perkScore.ToString(CultureInfo.InvariantCulture);
+            if (perkScore >= perkScoreTagLevel)
+            {
+                taggedItem[perkTagColumn] = "keep";
             }
         }
 
