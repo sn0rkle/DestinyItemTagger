@@ -44,22 +44,24 @@
             this.txtWeaponPerkScoreLevel = new System.Windows.Forms.TextBox();
             this.listWeaponsWithPerkRecommendations = new System.Windows.Forms.ListBox();
             this.listWeaponsWithPerkSets = new System.Windows.Forms.ListBox();
+            this.btnExport = new System.Windows.Forms.Button();
             this.groupArmour.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(340, 13);
+            this.btnGo.Location = new System.Drawing.Point(249, 17);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(75, 23);
             this.btnGo.TabIndex = 0;
-            this.btnGo.Text = "Go";
+            this.btnGo.Text = "Tag";
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.BtnGo_Click);
             // 
             // listArmourWithPerkSets
             // 
+            this.listArmourWithPerkSets.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.listArmourWithPerkSets.FormattingEnabled = true;
             this.listArmourWithPerkSets.Location = new System.Drawing.Point(9, 45);
             this.listArmourWithPerkSets.Name = "listArmourWithPerkSets";
@@ -68,6 +70,7 @@
             // 
             // listArmourWithPerkRecomendations
             // 
+            this.listArmourWithPerkRecomendations.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.listArmourWithPerkRecomendations.FormattingEnabled = true;
             this.listArmourWithPerkRecomendations.Location = new System.Drawing.Point(186, 45);
             this.listArmourWithPerkRecomendations.Name = "listArmourWithPerkRecomendations";
@@ -76,6 +79,7 @@
             // 
             // txtArmourPerkScoreLevel
             // 
+            this.txtArmourPerkScoreLevel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtArmourPerkScoreLevel.Location = new System.Drawing.Point(186, 224);
             this.txtArmourPerkScoreLevel.Name = "txtArmourPerkScoreLevel";
             this.txtArmourPerkScoreLevel.Size = new System.Drawing.Size(31, 20);
@@ -177,6 +181,7 @@
             // 
             // txtWeaponPerkScoreLevel
             // 
+            this.txtWeaponPerkScoreLevel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtWeaponPerkScoreLevel.Location = new System.Drawing.Point(186, 224);
             this.txtWeaponPerkScoreLevel.Name = "txtWeaponPerkScoreLevel";
             this.txtWeaponPerkScoreLevel.Size = new System.Drawing.Size(31, 20);
@@ -184,6 +189,7 @@
             // 
             // listWeaponsWithPerkRecommendations
             // 
+            this.listWeaponsWithPerkRecommendations.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.listWeaponsWithPerkRecommendations.FormattingEnabled = true;
             this.listWeaponsWithPerkRecommendations.Location = new System.Drawing.Point(186, 45);
             this.listWeaponsWithPerkRecommendations.Name = "listWeaponsWithPerkRecommendations";
@@ -192,23 +198,36 @@
             // 
             // listWeaponsWithPerkSets
             // 
+            this.listWeaponsWithPerkSets.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.listWeaponsWithPerkSets.FormattingEnabled = true;
             this.listWeaponsWithPerkSets.Location = new System.Drawing.Point(9, 45);
             this.listWeaponsWithPerkSets.Name = "listWeaponsWithPerkSets";
             this.listWeaponsWithPerkSets.Size = new System.Drawing.Size(171, 173);
             this.listWeaponsWithPerkSets.TabIndex = 1;
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(340, 17);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 7;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(427, 599);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupArmour);
             this.Controls.Add(this.btnGo);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "DiT";
             this.groupArmour.ResumeLayout(false);
             this.groupArmour.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -236,6 +255,7 @@
         private System.Windows.Forms.TextBox txtWeaponPerkScoreLevel;
         private System.Windows.Forms.ListBox listWeaponsWithPerkRecommendations;
         private System.Windows.Forms.ListBox listWeaponsWithPerkSets;
+        private System.Windows.Forms.Button btnExport;
     }
 }
 

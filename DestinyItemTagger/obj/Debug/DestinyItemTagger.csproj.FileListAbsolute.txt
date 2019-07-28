@@ -18,3 +18,4 @@ C:\Users\matth\source\repos\sn0rkle\DestinyItemTagger\DestinyItemTagger\bin\Debu
 C:\Users\matth\source\repos\sn0rkle\DestinyItemTagger\DestinyItemTagger\bin\Debug\DestinyItemTagger.exe
 C:\Users\matth\source\repos\sn0rkle\DestinyItemTagger\DestinyItemTagger\bin\Debug\DestinyItemTagger.pdb
 C:\Users\matth\Source\Repos\sn0rkle\DestinyItemTagger\DestinyItemTagger\bin\Debug\DestinyItemTagger.xml
+C:\Users\matth\Source\Repos\sn0rkle\DestinyItemTagger\DestinyItemTagger\obj\Debug\DestinyItemTagger.csprojAssemblyReference.cache
