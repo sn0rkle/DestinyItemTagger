@@ -62,17 +62,17 @@
             // Add the tagged armour items to the correct list
             foreach (string[] taggedArmour in this.taggedArmourList)
             {
-                if (taggedArmour[taggedArmour.Length - 3] == "infuse")
+                if (taggedArmour[taggedArmour.Length - ColumnPosition.ItemTagOffset] == "infuse")
                 {
                     this.listArmourForInfusion.Items.Add(taggedArmour[0]);
                 }
 
-                if (taggedArmour[taggedArmour.Length - 3] == "keep")
+                if (taggedArmour[taggedArmour.Length - ColumnPosition.ItemTagOffset] == "keep")
                 {
-                    this.listArmourWithPerkRecomendations.Items.Add(taggedArmour[0] + " - " + taggedArmour[taggedArmour.Length - 1]);
+                    this.listArmourWithPerkRecomendations.Items.Add(taggedArmour[0] + " - " + taggedArmour[taggedArmour.Length - ColumnPosition.ItemPerkRecommendationScoreOffset]);
                 }
 
-                if (taggedArmour[taggedArmour.Length - 3] == "favorite")
+                if (taggedArmour[taggedArmour.Length - ColumnPosition.ItemTagOffset] == "favorite")
                 {
                     this.listArmourWithPerkSets.Items.Add(taggedArmour[0]);
                 }
@@ -99,17 +99,17 @@
             // Add the tagged armour items to the correct list
             foreach (string[] taggedWeapon in this.taggedWeaponList)
             {
-                if (taggedWeapon[taggedWeapon.Length - 3] == "infuse")
+                if (taggedWeapon[taggedWeapon.Length - ColumnPosition.ItemTagOffset] == "infuse")
                 {
                     this.listWeaponsForInfusion.Items.Add(taggedWeapon[0]);
                 }
 
-                if (taggedWeapon[taggedWeapon.Length - 3] == "keep")
+                if (taggedWeapon[taggedWeapon.Length - ColumnPosition.ItemTagOffset] == "keep")
                 {
-                    this.listWeaponsWithPerkRecommendations.Items.Add(taggedWeapon[0] + " - " + taggedWeapon[taggedWeapon.Length - 1]);
+                    this.listWeaponsWithPerkRecommendations.Items.Add(taggedWeapon[0] + " - " + taggedWeapon[taggedWeapon.Length - ColumnPosition.ItemPerkRecommendationScoreOffset]);
                 }
 
-                if (taggedWeapon[taggedWeapon.Length - 3] == "favorite")
+                if (taggedWeapon[taggedWeapon.Length - ColumnPosition.ItemTagOffset] == "favorite")
                 {
                     this.listWeaponsWithPerkSets.Items.Add(taggedWeapon[0]);
                 }
