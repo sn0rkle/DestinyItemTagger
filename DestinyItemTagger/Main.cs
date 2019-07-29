@@ -17,24 +17,49 @@
         public Main()
         {
             this.InitializeComponent();
+
+            // Fix the size of the window.
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            // Default Perk Score Levels.
             this.txtArmourPerkScoreLevel.Text = "3";
             this.txtWeaponPerkScoreLevel.Text = "3";
+
+            // Default Current Power.
             this.txtCurrentPowerLevel.Text = "750";
+
+            // Default Include Infusion.
             this.chkIncludeArmourForInfusion.Checked = true;
             this.chkIncludeWeaponsForInfusion.Checked = true;
         }
 
         private void BtnGo_Click(object sender, EventArgs e)
         {
-            string[][] destinyArmourPieces = Program.LoadArrayFromCSV(@"destinyArmor.csv", true);
-            string[][] armourPerkSets = Program.LoadArrayFromCSV(@"ArmourPerkSets.csv", false);
-            string[][] armourPerkRecommendations = Program.LoadArrayFromCSV(@"ArmourPerkRecommendations.csv", false);
+            // Tag the armour and add them to the lists
+            this.TagArmour();
+
+            // Tag the weapons and add them to the lists.
+            this.TagWeapons();
+        }
+
+        private void TagArmour()
+        {
+            // Load the destiny armour items exported from DIM
+            string[][] destinyArmourPieces = FileHelper.LoadArrayFromCSV(@"destinyArmor.csv", true);
+
+            // Load the armour perk rules
+            string[][] armourPerkSets = FileHelper.LoadArrayFromCSV(@"ArmourPerkSets.csv", false);
+            string[][] armourPerkRecommendations = FileHelper.LoadArrayFromCSV(@"ArmourPerkRecommendations.csv", false);
+
+            // Tag the armour based on the perk rules
             this.taggedArmourList = Program.TagItems(destinyArmourPieces, "Armour", this.txtCurrentPowerLevel.Text, armourPerkSets, false, armourPerkRecommendations, Convert.ToInt32(this.txtArmourPerkScoreLevel.Text));
 
+            // Clear the armour lists
             this.listArmourForInfusion.Items.Clear();
             this.listArmourWithPerkSets.Items.Clear();
             this.listArmourWithPerkRecomendations.Items.Clear();
+
+            // Add the tagged armour items to the correct list
             foreach (string[] taggedArmour in this.taggedArmourList)
             {
                 if (taggedArmour[taggedArmour.Length - 3] == "infuse")
@@ -52,15 +77,26 @@
                     this.listArmourWithPerkSets.Items.Add(taggedArmour[0]);
                 }
             }
+        }
 
-            string[][] destinyWeapons = Program.LoadArrayFromCSV(@"destinyWeapons.csv", true);
-            string[][] weaponPerkSets = Program.LoadArrayFromCSV(@"WeaponPerkSets.csv", false);
-            string[][] weaponPerkRecommendations = Program.LoadArrayFromCSV(@"WeaponPerkRecommendations.csv", false);
+        private void TagWeapons()
+        {
+            // Load the destiny weapon items exported from DIM
+            string[][] destinyWeapons = FileHelper.LoadArrayFromCSV(@"destinyWeapons.csv", true);
+
+            // Load the weapon perk rules
+            string[][] weaponPerkSets = FileHelper.LoadArrayFromCSV(@"WeaponPerkSets.csv", false);
+            string[][] weaponPerkRecommendations = FileHelper.LoadArrayFromCSV(@"WeaponPerkRecommendations.csv", false);
+
+            // Tag the weapons based on the perk rules
             this.taggedWeaponList = Program.TagItems(destinyWeapons, "Weapon", this.txtCurrentPowerLevel.Text, weaponPerkSets, true, weaponPerkRecommendations, Convert.ToInt32(this.txtWeaponPerkScoreLevel.Text));
 
+            // Clear the weapons lists
             this.listWeaponsForInfusion.Items.Clear();
             this.listWeaponsWithPerkSets.Items.Clear();
             this.listWeaponsWithPerkRecommendations.Items.Clear();
+
+            // Add the tagged armour items to the correct list
             foreach (string[] taggedWeapon in this.taggedWeaponList)
             {
                 if (taggedWeapon[taggedWeapon.Length - 3] == "infuse")
@@ -82,40 +118,10 @@
 
         private void BtnExport_Click(object sender, EventArgs e)
         {
-            // TODO: Move this into Program and pass include infuse weapons and armour flags
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"dimImport.csv"))
-            {
-                file.WriteLine("Hash,Id,Tag,Notes");
-                foreach (string[] taggedArmour in this.taggedArmourList)
-                {
-                    string itemTag;
-                    if (taggedArmour[taggedArmour.Length - 3] == "infuse" && !this.chkIncludeArmourForInfusion.Checked)
-                    {
-                        itemTag = string.Empty;
-                    }
-                    else
-                    {
-                        itemTag = taggedArmour[taggedArmour.Length - 3];
-                    }
+            // Export the tagged items to file.
+            FileHelper.SaveArraysToFile(this.taggedArmourList, this.chkIncludeArmourForInfusion.Checked, this.taggedWeaponList, this.chkIncludeWeaponsForInfusion.Checked);
 
-                    file.WriteLine(taggedArmour[1] + "," + taggedArmour[2] + "," + taggedArmour[taggedArmour.Length - 3] + "," + taggedArmour[22]);
-                }
-
-                foreach (string[] taggedWeapon in this.taggedWeaponList)
-                {
-                    string itemTag;
-                    if (taggedWeapon[taggedWeapon.Length - 3] == "infuse" && !this.chkIncludeWeaponsForInfusion.Checked)
-                    {
-                        itemTag = string.Empty;
-                    }
-                    else
-                    {
-                        itemTag = taggedWeapon[taggedWeapon.Length - 3];
-                    }
-                    file.WriteLine(taggedWeapon[1] + "," + taggedWeapon[2] + "," + taggedWeapon[taggedWeapon.Length - 3] + "," + taggedWeapon[31]);
-                }
-            }
-
+            // All done!
             MessageBox.Show(@"Export sucessfull", "DiT", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
