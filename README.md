@@ -1,4 +1,5 @@
 # Instructions
+[Download Installation .zip](DestinyItemTagger.zip)
 
 This application automatically tags armour and weapons in DIM depending on rules that you setup in the included spreadsheets.
 
