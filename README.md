@@ -1,4 +1,4 @@
-# tag dem tings
+# Instructions
 
 This application automatically tags armour and weapons in DIM depending on rules that you setup in the included spreadsheets.
 
