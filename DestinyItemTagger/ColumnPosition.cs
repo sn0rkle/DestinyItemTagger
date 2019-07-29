@@ -77,17 +77,17 @@
         public const int ItemWeaponNotes = 31;
 
         /// <summary>
-        /// Item column - Tag this far from the end.
+        /// Item column - Tag is this far from the end.
         /// </summary>
         public const int ItemTagOffset = 3;
 
         /// <summary>
-        /// Item column - Perk Set Status this far from the end.
+        /// Item column - Perk Set Status is this far from the end.
         /// </summary>
         public const int ItemPerkSetStatusOffset = 2;
 
         /// <summary>
-        /// Item column - Perk Recommendation Score this far from the end.
+        /// Item column - Perk Recommendation Score is this far from the end.
         /// </summary>
         public const int ItemPerkRecommendationScoreOffset = 1;
     }

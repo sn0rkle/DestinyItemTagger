@@ -10,7 +10,7 @@
     public static class Program
     {
         /// <summary>
-        /// Tags items.
+        /// Tags items based on the supplied perk rules and settings.
         /// </summary>
         /// <param name="destinyItems">Array of items.</param>
         /// <param name="itemType">Type of items in the list.</param>
@@ -29,27 +29,6 @@
                 string[][] perkRecommendations,
                 int perkScoreTagLevel)
         {
-            // Standard null check on parameters
-            if (destinyItems is null)
-            {
-                throw new ArgumentNullException(nameof(destinyItems));
-            }
-
-            if (powerLevel is null)
-            {
-                throw new ArgumentNullException(nameof(powerLevel));
-            }
-
-            if (perkSets is null)
-            {
-                throw new ArgumentNullException(nameof(perkSets));
-            }
-
-            if (perkRecommendations is null)
-            {
-                throw new ArgumentNullException(nameof(perkRecommendations));
-            }
-
             // Check each item
             string[][] taggedItems = Array.Empty<string[]>();
             foreach (string[] destinyItem in destinyItems)
