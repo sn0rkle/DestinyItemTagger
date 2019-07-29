@@ -20,8 +20,8 @@ Example perk rule spreadsheets based on common reddit wisdom are included in Des
 2. Go to settings in DIM and scroll to the spreadsheets section at the bottom
 3. Export destinyWeapons.csv and destinyArmour.csv then place them in the same folder as the unzipped app
 4. Peruse the other spreadsheets in this folder to check out the perk sets and perk scores and change them if desired
-5. Launch the application and change the armour perk score, weapon perk score or power level if desired
-6. Click Tag and the items to be tagged are displayed
+5. Launch the application and change the armour perk score, weapon perk score and power level if desired
+6. Click Tag and the items to be tagged will be displayed
 7. Click Export and a new file dimImport.csv will be created in the application folder
 8. Go back to the spreadsheet section in DIM and import the dimImport.csv file
 9. Use a dim filter to show the items for dismantlement, I use "tag:none -is:exotic -is:masterwork"
