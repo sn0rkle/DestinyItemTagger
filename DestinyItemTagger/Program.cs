@@ -29,6 +29,7 @@
                 string[][] perkRecommendations,
                 int perkScoreTagLevel)
         {
+            // Standard null check on parameters
             if (destinyItems is null)
             {
                 throw new ArgumentNullException(nameof(destinyItems));
@@ -75,8 +76,10 @@
             return taggedItems;
         }
 
+        // Tag items whos Power Level is the same or higher than the supplied Power Level.
         private static void CheckForInfusion(ref string[] taggedItem, string itemType, string powerLevel)
         {
+            // Choose the right Power Level column based on the item type
             int itemPowerLevelColumn = 0;
             if (itemType == "Armour")
             {
@@ -87,6 +90,7 @@
                 itemPowerLevelColumn = ColumnPosition.ItemWeaponPowerLevel;
             }
 
+            // Check if the item mathes or is higher that the power level and tag it if it is.
             if (Convert.ToInt32(taggedItem[itemPowerLevelColumn]) >= Convert.ToInt32(powerLevel))
             {
                 int perkTagColumn = taggedItem.Length - ColumnPosition.ItemTagOffset;
@@ -94,6 +98,7 @@
             }
         }
 
+        // Tag items that have a Perk Recommendation Score higher than the Perk Score Level supplied.
         private static void CheckForRecomendedPerks(ref string[] taggedItem, string[][] perkRecommendations, int perkScoreTagLevel)
         {
             // Go through each recommended perk.
@@ -120,6 +125,7 @@
             }
         }
 
+        // Tag items which contain all the Perks in any Perk Set.
         private static void CheckForPerkSets(ref string[] taggedItem, string[][] perkSets, bool typedPerkSet)
         {
             // Go through each perk set
@@ -163,6 +169,7 @@
             }
         }
 
+        // Check if an item contains the Perk specified
         private static bool CheckForPerk(string[] destinyItem, string type, string perk)
         {
             // Go through each perk on the item
