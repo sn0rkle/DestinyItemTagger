@@ -1,4 +1,4 @@
-# Destiny Item Tagger
+# tag dem tings
 
 This application automatically tags armour and weapons in DIM depending on rules that you setup in the included spreadsheets.
 
