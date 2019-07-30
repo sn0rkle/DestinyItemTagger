@@ -10,6 +10,7 @@
     {
         private string[][] taggedArmourList;
         private string[][] taggedWeaponList;
+        private bool initFinished = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Main"/> class.
@@ -31,10 +32,10 @@
             // Default Include Infusion.
             this.chkIncludeArmourForInfusion.Checked = true;
             this.chkIncludeWeaponsForInfusion.Checked = true;
-        }
 
-        private void BtnGo_Click(object sender, EventArgs e)
-        {
+            // Init is done!
+            this.initFinished = true;
+
             // Tag the armour and add them to the lists
             this.TagArmour();
 
@@ -62,7 +63,7 @@
             // Add the tagged armour items to the correct list
             foreach (string[] taggedArmour in this.taggedArmourList)
             {
-                if (taggedArmour[taggedArmour.Length - ColumnPosition.ItemTagOffset] == "infuse")
+                if (taggedArmour[taggedArmour.Length - ColumnPosition.ItemTagOffset] == "infuse" && this.chkIncludeArmourForInfusion.Checked)
                 {
                     this.listArmourForInfusion.Items.Add(taggedArmour[0]);
                 }
@@ -99,7 +100,7 @@
             // Add the tagged armour items to the correct list
             foreach (string[] taggedWeapon in this.taggedWeaponList)
             {
-                if (taggedWeapon[taggedWeapon.Length - ColumnPosition.ItemTagOffset] == "infuse")
+                if (taggedWeapon[taggedWeapon.Length - ColumnPosition.ItemTagOffset] == "infuse" && this.chkIncludeWeaponsForInfusion.Checked)
                 {
                     this.listWeaponsForInfusion.Items.Add(taggedWeapon[0]);
                 }
@@ -123,6 +124,54 @@
 
             // All done!
             MessageBox.Show(@"Export sucessfull", "DiT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void TxtCurrentPowerLevel_TextChanged(object sender, EventArgs e)
+        {
+            if (this.initFinished)
+            {
+                // Tag the armour and add them to the lists
+                this.TagArmour();
+
+                // Tag the weapons and add them to the lists.
+                this.TagWeapons();
+            }
+        }
+
+        private void ChkIncludeArmourForInfusion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.initFinished)
+            {
+                // Tag the armour and add them to the lists
+                this.TagArmour();
+            }
+        }
+
+        private void ChkIncludeWeaponsForInfusion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.initFinished)
+            {
+                // Tag the weapons and add them to the lists.
+                this.TagWeapons();
+            }
+        }
+
+        private void TxtArmourPerkScoreLevel_TextChanged(object sender, EventArgs e)
+        {
+            if (this.initFinished)
+            {
+                // Tag the armour and add them to the lists.
+                this.TagArmour();
+            }
+        }
+
+        private void TxtWeaponPerkScoreLevel_TextChanged(object sender, EventArgs e)
+        {
+            if (this.initFinished)
+            {
+                // Tag the weapons and add them to the lists.
+                this.TagWeapons();
+            }
         }
     }
 }

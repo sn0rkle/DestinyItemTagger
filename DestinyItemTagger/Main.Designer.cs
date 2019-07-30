@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGo = new System.Windows.Forms.Button();
             this.listArmourWithPerkSets = new System.Windows.Forms.ListBox();
             this.listArmourWithPerkRecomendations = new System.Windows.Forms.ListBox();
             this.txtArmourPerkScoreLevel = new System.Windows.Forms.TextBox();
@@ -57,41 +56,40 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnGo
-            // 
-            this.btnGo.Location = new System.Drawing.Point(429, 17);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(75, 23);
-            this.btnGo.TabIndex = 0;
-            this.btnGo.Text = "Tag";
-            this.btnGo.UseVisualStyleBackColor = true;
-            this.btnGo.Click += new System.EventHandler(this.BtnGo_Click);
-            // 
             // listArmourWithPerkSets
             // 
             this.listArmourWithPerkSets.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.listArmourWithPerkSets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listArmourWithPerkSets.FormattingEnabled = true;
-            this.listArmourWithPerkSets.Location = new System.Drawing.Point(9, 45);
+            this.listArmourWithPerkSets.ItemHeight = 17;
+            this.listArmourWithPerkSets.Location = new System.Drawing.Point(10, 60);
+            this.listArmourWithPerkSets.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listArmourWithPerkSets.Name = "listArmourWithPerkSets";
-            this.listArmourWithPerkSets.Size = new System.Drawing.Size(171, 173);
+            this.listArmourWithPerkSets.Size = new System.Drawing.Size(199, 223);
             this.listArmourWithPerkSets.TabIndex = 1;
             // 
             // listArmourWithPerkRecomendations
             // 
             this.listArmourWithPerkRecomendations.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.listArmourWithPerkRecomendations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listArmourWithPerkRecomendations.FormattingEnabled = true;
-            this.listArmourWithPerkRecomendations.Location = new System.Drawing.Point(186, 45);
+            this.listArmourWithPerkRecomendations.ItemHeight = 17;
+            this.listArmourWithPerkRecomendations.Location = new System.Drawing.Point(217, 60);
+            this.listArmourWithPerkRecomendations.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listArmourWithPerkRecomendations.Name = "listArmourWithPerkRecomendations";
-            this.listArmourWithPerkRecomendations.Size = new System.Drawing.Size(198, 173);
+            this.listArmourWithPerkRecomendations.Size = new System.Drawing.Size(230, 223);
             this.listArmourWithPerkRecomendations.TabIndex = 2;
             // 
             // txtArmourPerkScoreLevel
             // 
             this.txtArmourPerkScoreLevel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.txtArmourPerkScoreLevel.Location = new System.Drawing.Point(186, 224);
+            this.txtArmourPerkScoreLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtArmourPerkScoreLevel.Location = new System.Drawing.Point(217, 293);
+            this.txtArmourPerkScoreLevel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtArmourPerkScoreLevel.Name = "txtArmourPerkScoreLevel";
-            this.txtArmourPerkScoreLevel.Size = new System.Drawing.Size(31, 20);
+            this.txtArmourPerkScoreLevel.Size = new System.Drawing.Size(35, 22);
             this.txtArmourPerkScoreLevel.TabIndex = 3;
+            this.txtArmourPerkScoreLevel.TextChanged += new System.EventHandler(this.TxtArmourPerkScoreLevel_TextChanged);
             // 
             // groupArmour
             // 
@@ -104,9 +102,12 @@
             this.groupArmour.Controls.Add(this.txtArmourPerkScoreLevel);
             this.groupArmour.Controls.Add(this.listArmourWithPerkRecomendations);
             this.groupArmour.Controls.Add(this.listArmourWithPerkSets);
-            this.groupArmour.Location = new System.Drawing.Point(13, 52);
+            this.groupArmour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupArmour.Location = new System.Drawing.Point(15, 80);
+            this.groupArmour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupArmour.Name = "groupArmour";
-            this.groupArmour.Size = new System.Drawing.Size(572, 258);
+            this.groupArmour.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupArmour.Size = new System.Drawing.Size(667, 338);
             this.groupArmour.TabIndex = 4;
             this.groupArmour.TabStop = false;
             this.groupArmour.Text = "Armour";
@@ -114,82 +115,91 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(387, 29);
+            this.label9.Location = new System.Drawing.Point(451, 38);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 13);
+            this.label9.Size = new System.Drawing.Size(117, 17);
             this.label9.TabIndex = 9;
             this.label9.Text = "Armour for Infusion";
             // 
             // chkIncludeArmourForInfusion
             // 
             this.chkIncludeArmourForInfusion.AutoSize = true;
-            this.chkIncludeArmourForInfusion.Location = new System.Drawing.Point(390, 227);
+            this.chkIncludeArmourForInfusion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkIncludeArmourForInfusion.Location = new System.Drawing.Point(455, 298);
+            this.chkIncludeArmourForInfusion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkIncludeArmourForInfusion.Name = "chkIncludeArmourForInfusion";
-            this.chkIncludeArmourForInfusion.Size = new System.Drawing.Size(152, 17);
+            this.chkIncludeArmourForInfusion.Size = new System.Drawing.Size(180, 21);
             this.chkIncludeArmourForInfusion.TabIndex = 8;
             this.chkIncludeArmourForInfusion.Text = "Include Armour for Infusion";
             this.chkIncludeArmourForInfusion.UseVisualStyleBackColor = true;
+            this.chkIncludeArmourForInfusion.CheckedChanged += new System.EventHandler(this.ChkIncludeArmourForInfusion_CheckedChanged);
             // 
             // listArmourForInfusion
             // 
             this.listArmourForInfusion.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.listArmourForInfusion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listArmourForInfusion.FormattingEnabled = true;
-            this.listArmourForInfusion.Location = new System.Drawing.Point(390, 45);
+            this.listArmourForInfusion.ItemHeight = 17;
+            this.listArmourForInfusion.Location = new System.Drawing.Point(455, 60);
+            this.listArmourForInfusion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listArmourForInfusion.Name = "listArmourForInfusion";
-            this.listArmourForInfusion.Size = new System.Drawing.Size(171, 173);
+            this.listArmourForInfusion.Size = new System.Drawing.Size(199, 223);
             this.listArmourForInfusion.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(219, 227);
+            this.label4.Location = new System.Drawing.Point(255, 298);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.Size = new System.Drawing.Size(127, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "Perk Score Required";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(183, 29);
+            this.label3.Location = new System.Drawing.Point(213, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 13);
+            this.label3.Size = new System.Drawing.Size(170, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Armour Meeting Perk Score";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 29);
+            this.label2.Location = new System.Drawing.Point(7, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
+            this.label2.Size = new System.Drawing.Size(130, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Armour with Perk Set";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(257, 22);
+            this.label8.Location = new System.Drawing.Point(513, 56);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 13);
+            this.label8.Size = new System.Drawing.Size(128, 17);
             this.label8.TabIndex = 8;
             this.label8.Text = "Current Power Level";
             // 
             // txtCurrentPowerLevel
             // 
             this.txtCurrentPowerLevel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.txtCurrentPowerLevel.Location = new System.Drawing.Point(366, 18);
+            this.txtCurrentPowerLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentPowerLevel.Location = new System.Drawing.Point(470, 53);
+            this.txtCurrentPowerLevel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCurrentPowerLevel.Name = "txtCurrentPowerLevel";
-            this.txtCurrentPowerLevel.Size = new System.Drawing.Size(31, 20);
+            this.txtCurrentPowerLevel.Size = new System.Drawing.Size(35, 22);
             this.txtCurrentPowerLevel.TabIndex = 7;
+            this.txtCurrentPowerLevel.TextChanged += new System.EventHandler(this.TxtCurrentPowerLevel_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 25);
+            this.label1.Size = new System.Drawing.Size(325, 39);
             this.label1.TabIndex = 5;
             this.label1.Text = "Destiny Item Tagger";
             // 
@@ -204,9 +214,12 @@
             this.groupBox1.Controls.Add(this.txtWeaponPerkScoreLevel);
             this.groupBox1.Controls.Add(this.listWeaponsWithPerkRecommendations);
             this.groupBox1.Controls.Add(this.listWeaponsWithPerkSets);
-            this.groupBox1.Location = new System.Drawing.Point(13, 329);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Location = new System.Drawing.Point(15, 430);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(572, 258);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(667, 338);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Weapons";
@@ -214,108 +227,131 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(387, 29);
+            this.label10.Location = new System.Drawing.Point(451, 38);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 13);
+            this.label10.Size = new System.Drawing.Size(131, 17);
             this.label10.TabIndex = 10;
             this.label10.Text = "Weapons for Infusion";
             // 
             // chkIncludeWeaponsForInfusion
             // 
             this.chkIncludeWeaponsForInfusion.AutoSize = true;
-            this.chkIncludeWeaponsForInfusion.Location = new System.Drawing.Point(390, 227);
+            this.chkIncludeWeaponsForInfusion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkIncludeWeaponsForInfusion.Location = new System.Drawing.Point(455, 298);
+            this.chkIncludeWeaponsForInfusion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkIncludeWeaponsForInfusion.Name = "chkIncludeWeaponsForInfusion";
-            this.chkIncludeWeaponsForInfusion.Size = new System.Drawing.Size(165, 17);
+            this.chkIncludeWeaponsForInfusion.Size = new System.Drawing.Size(194, 21);
             this.chkIncludeWeaponsForInfusion.TabIndex = 7;
             this.chkIncludeWeaponsForInfusion.Text = "Include Weapons for Infusion";
             this.chkIncludeWeaponsForInfusion.UseVisualStyleBackColor = true;
+            this.chkIncludeWeaponsForInfusion.CheckedChanged += new System.EventHandler(this.ChkIncludeWeaponsForInfusion_CheckedChanged);
             // 
             // listWeaponsForInfusion
             // 
             this.listWeaponsForInfusion.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.listWeaponsForInfusion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listWeaponsForInfusion.FormattingEnabled = true;
-            this.listWeaponsForInfusion.Location = new System.Drawing.Point(390, 45);
+            this.listWeaponsForInfusion.ItemHeight = 17;
+            this.listWeaponsForInfusion.Location = new System.Drawing.Point(455, 60);
+            this.listWeaponsForInfusion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listWeaponsForInfusion.Name = "listWeaponsForInfusion";
-            this.listWeaponsForInfusion.Size = new System.Drawing.Size(171, 173);
+            this.listWeaponsForInfusion.Size = new System.Drawing.Size(199, 223);
             this.listWeaponsForInfusion.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(219, 227);
+            this.label5.Location = new System.Drawing.Point(255, 298);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 13);
+            this.label5.Size = new System.Drawing.Size(127, 17);
             this.label5.TabIndex = 5;
             this.label5.Text = "Perk Score Required";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(183, 29);
+            this.label6.Location = new System.Drawing.Point(213, 38);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 13);
+            this.label6.Size = new System.Drawing.Size(184, 17);
             this.label6.TabIndex = 4;
             this.label6.Text = "Weapons Meeting Perk Score";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 29);
+            this.label7.Location = new System.Drawing.Point(7, 38);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 13);
+            this.label7.Size = new System.Drawing.Size(144, 17);
             this.label7.TabIndex = 3;
             this.label7.Text = "Weapons with Perk Set";
             // 
             // txtWeaponPerkScoreLevel
             // 
             this.txtWeaponPerkScoreLevel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.txtWeaponPerkScoreLevel.Location = new System.Drawing.Point(186, 224);
+            this.txtWeaponPerkScoreLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtWeaponPerkScoreLevel.Location = new System.Drawing.Point(217, 293);
+            this.txtWeaponPerkScoreLevel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWeaponPerkScoreLevel.Name = "txtWeaponPerkScoreLevel";
-            this.txtWeaponPerkScoreLevel.Size = new System.Drawing.Size(31, 20);
+            this.txtWeaponPerkScoreLevel.Size = new System.Drawing.Size(35, 22);
             this.txtWeaponPerkScoreLevel.TabIndex = 3;
+            this.txtWeaponPerkScoreLevel.TextChanged += new System.EventHandler(this.TxtWeaponPerkScoreLevel_TextChanged);
             // 
             // listWeaponsWithPerkRecommendations
             // 
             this.listWeaponsWithPerkRecommendations.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.listWeaponsWithPerkRecommendations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listWeaponsWithPerkRecommendations.FormattingEnabled = true;
-            this.listWeaponsWithPerkRecommendations.Location = new System.Drawing.Point(186, 45);
+            this.listWeaponsWithPerkRecommendations.ItemHeight = 17;
+            this.listWeaponsWithPerkRecommendations.Location = new System.Drawing.Point(217, 60);
+            this.listWeaponsWithPerkRecommendations.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listWeaponsWithPerkRecommendations.Name = "listWeaponsWithPerkRecommendations";
-            this.listWeaponsWithPerkRecommendations.Size = new System.Drawing.Size(198, 173);
+            this.listWeaponsWithPerkRecommendations.Size = new System.Drawing.Size(230, 223);
             this.listWeaponsWithPerkRecommendations.TabIndex = 2;
             // 
             // listWeaponsWithPerkSets
             // 
             this.listWeaponsWithPerkSets.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.listWeaponsWithPerkSets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listWeaponsWithPerkSets.FormattingEnabled = true;
-            this.listWeaponsWithPerkSets.Location = new System.Drawing.Point(9, 45);
+            this.listWeaponsWithPerkSets.ItemHeight = 17;
+            this.listWeaponsWithPerkSets.Location = new System.Drawing.Point(10, 60);
+            this.listWeaponsWithPerkSets.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listWeaponsWithPerkSets.Name = "listWeaponsWithPerkSets";
-            this.listWeaponsWithPerkSets.Size = new System.Drawing.Size(171, 173);
+            this.listWeaponsWithPerkSets.Size = new System.Drawing.Size(199, 223);
             this.listWeaponsWithPerkSets.TabIndex = 1;
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(510, 17);
+            this.btnExport.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(15, 776);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.Size = new System.Drawing.Size(667, 62);
             this.btnExport.TabIndex = 7;
             this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(599, 599);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(699, 852);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.txtCurrentPowerLevel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupArmour);
-            this.Controls.Add(this.btnGo);
+            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Main";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "DiT";
             this.groupArmour.ResumeLayout(false);
             this.groupArmour.PerformLayout();
@@ -327,8 +363,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnGo;
         private System.Windows.Forms.ListBox listArmourWithPerkSets;
         private System.Windows.Forms.ListBox listArmourWithPerkRecomendations;
         private System.Windows.Forms.TextBox txtArmourPerkScoreLevel;
