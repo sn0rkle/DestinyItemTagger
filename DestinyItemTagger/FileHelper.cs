@@ -1,6 +1,7 @@
 ﻿namespace DestinyItemTagger
 {
     using System;
+    using System.IO;
     using Microsoft.VisualBasic.FileIO;
 
     /// <summary>

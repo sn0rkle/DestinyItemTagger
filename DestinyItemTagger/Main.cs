@@ -1,6 +1,11 @@
-﻿namespace DestinyItemTagger
+﻿using System;
+
+[assembly: CLSCompliant(true)]
+
+namespace DestinyItemTagger
 {
     using System;
+    using System.IO;
     using System.Windows.Forms;
 
     /// <summary>
@@ -18,9 +23,6 @@
         public Main()
         {
             this.InitializeComponent();
-
-            // Fix the size of the window.
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             // Default Perk Score Levels.
             this.txtArmourPerkScoreLevel.Text = "3";
@@ -46,7 +48,15 @@
         private void TagArmour()
         {
             // Load the destiny armour items exported from DIM
-            string[][] destinyArmourPieces = FileHelper.LoadArrayFromCSV(@"destinyArmor.csv", true);
+            string[][] destinyArmourPieces = Array.Empty<string[]>();
+            try
+            {
+                destinyArmourPieces = FileHelper.LoadArrayFromCSV(@"destinyArmor.csv", true);
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show(@"Unable to find destinyArmour.csv.  Please make sure this has been downloaded from DIM and placed in the same folder as this application.", "DiT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Load the armour perk rules
             string[][] armourPerkSets = FileHelper.LoadArrayFromCSV(@"ArmourPerkSets.csv", false);
@@ -83,7 +93,15 @@
         private void TagWeapons()
         {
             // Load the destiny weapon items exported from DIM
-            string[][] destinyWeapons = FileHelper.LoadArrayFromCSV(@"destinyWeapons.csv", true);
+            string[][] destinyWeapons = Array.Empty<string[]>();
+            try
+            {
+                destinyWeapons = FileHelper.LoadArrayFromCSV(@"destinyWeapons.csv", true);
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show(@"Unable to find destinyWeapons.csv.  Please make sure this has been downloaded from DIM and placed in the same folder as this application.", "DiT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Load the weapon perk rules
             string[][] weaponPerkSets = FileHelper.LoadArrayFromCSV(@"WeaponPerkSets.csv", false);
