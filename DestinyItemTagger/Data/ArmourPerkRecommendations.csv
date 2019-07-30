@@ -1,52 +1,54 @@
-Helmet,Precision Weapon Targeting,1
-Helmet,Enhanced Bow Targeting,1
-Helmet,Enhanced Hand Cannon Targeting,1
-Helmet,Enhanced Linear Fusion Targeting,1
-Helmet,Enhanced Sniper Rifle Targeting,1
+Helmet,Precision Weapon Targeting,2
+Helmet,Enhanced Bow Targeting,2
+Helmet,Enhanced Hand Cannon Targeting,2
+Helmet,Enhanced Linear Fusion Targeting,2
+Helmet,Enhanced Sniper Rifle Targeting,2
 Helmet,Enhanced Ashes to Assets,2
-Helmet,Enhanced Heavy Lifting,2
-Helmet,Light Reactor,2
-Helmet,Pump Action,2
-Helmet,Remote Connection,2
+Helmet,Enhanced Heavy Lifting,3
+Helmet,Light Reactor,3
+Helmet,Pump Action,3
+Helmet,Remote Connection,3
+Helmet,Hands-On,3
 Gauntlets,Rifle Loader,2
 Gauntlets,Light Arms Loader,3
-Gauntlets,Enhanced Hand Cannon Loader,2
+Gauntlets,Enhanced Hand Cannon Loader,3
 Gauntlets,Enhanced Shotgun Loader,1
 Gauntlets,Enhanced Grenade Launcher Loader,1
 Gauntlets,Enhanced Rocket Launcher Loader,1
-Gauntlets,Enhanced Impact Induction,1
+Gauntlets,Enhanced Impact Induction,2
 Gauntlets,Enhanced Momentum Transfer,1
 Chest Armor,Unflinching Rifle Aim,3
-Chest Armor,Enhanced Unflinching Sniper Aim,2
-Chest Armor,Enhanced Unflinching Linear Fusion Aim,1
-Chest Armor,Enhanced Unflinching Scout Rifle Aim,1
-Chest Armor,Unflinching Light Arms Aim,2
-Chest Armor,Unflinching Large Arms,1
-Chest Armor,Enhanced Unflinching Bow Aim,1
+Chest Armor,Enhanced Unflinching Sniper Aim,3
+Chest Armor,Enhanced Unflinching Linear Fusion Aim,3
+Chest Armor,Enhanced Unflinching Scout Rifle Aim,3
+Chest Armor,Unflinching Light Arms Aim,3
+Chest Armor,Unflinching Large Arms,3
+Chest Armor,Enhanced Unflinching Bow Aim,3
 Leg Armor,Enhanced Bomber,2
 Leg Armor,Distribution,3
-Leg Armor,Dynamo,2
+Leg Armor,Dynamo,3
 Leg Armor,Traction,1
-Leg Armor,Light Arms Dexterity,1
-Leg Armor,Enhanced Hand Cannon Dexterity,1
+Leg Armor,Light Arms Dexterity,3
+Leg Armor,Enhanced Hand Cannon Dexterity,3
 Leg Armor,Rifle Dexterity,1
-Leg Armor,Enhanced Sniper Rifle Dexterity,1
-Leg Armor,Oversize Weapon Dexterity,1
-Leg Armor,Enhanced Rocket Launcher Dexterity,1
-Leg Armor,Enhanced Shotgun Dexterity,1
-Class Item,Absolution,1
-Secondary Perks,Fusion Rifle Scavenger,2
-Secondary Perks,Grenade Launcher Scavenger,2
-Secondary Perks,Linear Fusion Rifle Scavenger,1
-Secondary Perks,Machine Gun Scavenger,1
-Secondary Perks,Rocket Launcher Scavenger,1
-Secondary Perks,Shotgun Scavenger,2
-Secondary Perks,Sniper Rifle Scavenger,2
-Secondary Perks,Heavy Ammo Finder,1
-Secondary Perks,Sniper Rifle Reserves,1
-Secondary Perks,Shotgun Reserves,1
-Intrinsics,Reaper +3,1
-Intrinsics,Invader +3,1
-Intrinsics,Sentry +3,1
-Intrinsics,Collector +3,1
-Mods,Riven's Curse,1
+Leg Armor,Enhanced Sniper Rifle Dexterity,3
+Leg Armor,Oversize Weapon Dexterity,3
+Leg Armor,Enhanced Rocket Launcher Dexterity,3
+Leg Armor,Enhanced Shotgun Dexterity,3
+Class Item,Absolution,3
+Class Item,Recuperation,3
+All,Fusion Rifle Scavenger,3
+All,Grenade Launcher Scavenger,3
+All,Linear Fusion Rifle Scavenger,3
+All,Machine Gun Scavenger,2
+All,Rocket Launcher Scavenger,3
+All,Shotgun Scavenger,3
+All,Sniper Rifle Scavenger,3
+All,Heavy Ammo Finder,1
+All,Sniper Rifle Reserves,3
+All,Shotgun Reserves,3
+Intrinsics,Reaper +3,3
+Intrinsics,Invader +3,3
+Intrinsics,Sentry +3,3
+Intrinsics,Collector +3,3
+Mods,Riven's Curse,2

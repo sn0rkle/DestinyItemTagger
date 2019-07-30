@@ -156,7 +156,7 @@
             for (int perkColumn = ColumnPosition.ItemPerkStart; perkColumn < destinyItem.Length - ColumnPosition.ItemPerkEndOffset; perkColumn++)
             {
                 // Check if it matches the required perk
-                if (type == destinyItem[ColumnPosition.ItemType] && perk == destinyItem[perkColumn].Replace("*", string.Empty))
+                if ((type == destinyItem[ColumnPosition.ItemType] || type == "All") && perk == destinyItem[perkColumn].Replace("*", string.Empty))
                 {
                     perkmatch = true;
                 }

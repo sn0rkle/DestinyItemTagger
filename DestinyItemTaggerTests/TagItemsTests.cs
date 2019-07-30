@@ -103,6 +103,31 @@ namespace DestinyItemTaggerTests
         }
 
         [TestMethod]
+        public void armourPerkScoreMetWithTypeAll()
+        {
+            string[][] destinyArmourPieces = new string[1][];
+            destinyArmourPieces[0] = new string[31] { "Tangled Web Hood", "1664085089", "\"6917529097117115204\"", "", "Legendary", "Helmet", "", "Warlock", "732", "Void Damage Resistance", "1", "Warlock(750)", "FALSE", "FALSE", "2", "4", "", "5", "1", "2", "1", "0", "", "Mobile Warlock Armor*", "Mobility Enhancement Mod*", "Restorative Mod", "Tier 1 Armor*", "Sniper Rifle Targeting*", "Light Reactor", "Linear Fusion Rifle Reserves*", "Shotgun Reserves" };
+            string itemType = "Armour";
+            string currentPowerLevel = "999";
+
+            string[][] armourPerkSets = new string[1][];
+            armourPerkSets[0] = new string[2] { "Non Existant Perk", "Another Non Existant Perk" };
+            bool typedPerkSet = false;
+
+            string[][] armourPerkRecommendations = new string[][] {
+                new string[] { "All", "Light Reactor", "3" },
+                new string[] { "All", "Linear Fusion Rifle Reserves", "2" }
+            };
+
+            int perkScoreLevel = 4;
+
+            string[][] taggedArmourList = Program.TagItems(destinyArmourPieces, itemType, currentPowerLevel, armourPerkSets, typedPerkSet, armourPerkRecommendations, perkScoreLevel);
+
+            Assert.IsTrue(taggedArmourList[0][taggedArmourList[0].Length - 1] == "5", "Perk score matched armour did add not up correctly.");
+            Assert.IsTrue(taggedArmourList[0][taggedArmourList[0].Length - 3] == "keep", "Perk score matched armour not tagged \"keep\".");
+        }
+
+        [TestMethod]
         public void armourPowerLevelNotMet()
         {
             string[][] destinyArmourPieces = new string[1][];
