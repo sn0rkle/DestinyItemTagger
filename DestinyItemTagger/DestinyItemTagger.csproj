@@ -59,6 +59,8 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\DestinyItemTagger.xml</DocumentationFile>
     <CodeAnalysisRuleSet>DestinyItemTagger.ruleset</CodeAnalysisRuleSet>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>F412CCA2E36B31A837581E0F1A2DC04534DDF49B</ManifestCertificateThumbprint>
