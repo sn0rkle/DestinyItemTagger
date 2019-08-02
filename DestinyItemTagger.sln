@@ -13,11 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{74344FA9-E
 		DestinyItemTagger\Data\WeaponPerkSets.csv = DestinyItemTagger\Data\WeaponPerkSets.csv
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestinyItemTaggerTests", "DestinyItemTaggerTests\DestinyItemTaggerTests.csproj", "{D7CD7E56-1D1C-42E0-A782-54E774C41AF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DestinyItemTaggerTests", "DestinyItemTaggerTests\DestinyItemTaggerTests.csproj", "{D7CD7E56-1D1C-42E0-A782-54E774C41AF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distribution", "Distribution", "{2BEF361D-E64C-41B2-AE22-9745B06A7C38}"
 	ProjectSection(SolutionItems) = preProject
 		DestinyItemTagger.zip = DestinyItemTagger.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{1FDEC741-D8D8-4DBE-A539-8EC7C7ED920B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		_config.yml = _config.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
