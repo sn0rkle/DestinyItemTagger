@@ -2,6 +2,7 @@
 {
     using System;
     using System.Globalization;
+    using System.IO;
     using System.Windows.Forms;
 
     /// <summary>
@@ -175,7 +176,14 @@
             Application.SetCompatibleTextRenderingDefault(false);
             using (Main mainForm = new Main())
             {
-                Application.Run(mainForm: mainForm);
+                if (mainForm.Launch)
+                {
+                    Application.Run(mainForm: mainForm);
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
         }
     }

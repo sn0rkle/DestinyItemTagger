@@ -23,27 +23,69 @@ namespace DestinyItemTagger
         public Main()
         {
             this.InitializeComponent();
+            using (Splash splashForm = new Splash())
+            {
+                if (File.Exists(Directory.GetCurrentDirectory() + "\\destinyArmor.csv"))
+                {
+                    this.Launch = true;
+                    splashForm.SendMessage(this.Launch, @"destinyArmour.csv found...");
+                }
+                else
+                {
+                    splashForm.SendMessage(this.Launch, "!! destinyArmour.csv not found !! - download from DIM");
+                }
 
-            // Default Perk Score Levels.
-            this.txtArmourPerkScoreLevel.Text = "3";
-            this.txtWeaponPerkScoreLevel.Text = "3";
+                if (File.Exists(@"destinyWeapons.csv"))
+                {
+                    this.Launch = this.Launch && true;
+                    splashForm.SendMessage(this.Launch, @"destinyWeapons.csv found...");
+                }
+                else
+                {
+                    splashForm.SendMessage(this.Launch, "!! destinyWeapons.csv not found !! - download from DIM");
+                }
 
-            // Default Current Power.
-            this.txtCurrentPowerLevel.Text = "750";
+                if (this.Launch == true)
+                {
+                    splashForm.SetButtonText("Launch");
+                }
+                else
+                {
+                    splashForm.SetButtonText("Exit");
+                }
 
-            // Default Include Infusion.
-            this.chkIncludeArmourForInfusion.Checked = true;
-            this.chkIncludeWeaponsForInfusion.Checked = true;
+                splashForm.ShowDialog();
 
-            // Init is done!
-            this.initFinished = true;
+                if (this.Launch == true)
+                {
+                    // Default Perk Score Levels.
+                    this.txtArmourPerkScoreLevel.Text = "3";
+                    this.txtWeaponPerkScoreLevel.Text = "3";
 
-            // Tag the armour and add them to the lists
-            this.TagArmour();
+                    // Default Current Power.
+                    this.txtCurrentPowerLevel.Text = "750";
 
-            // Tag the weapons and add them to the lists.
-            this.TagWeapons();
+                    // Default Include Infusion.
+                    this.chkIncludeArmourForInfusion.Checked = true;
+                    this.chkIncludeWeaponsForInfusion.Checked = true;
+
+                    // Init is done!
+                    this.initFinished = true;
+
+                    // Tag the armour and add them to the lists
+                    this.TagArmour();
+
+                    // Tag the weapons and add them to the lists.
+                    this.TagWeapons();
+                }
+            }
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to launch the application.
+        /// </summary>
+        public bool Launch
+        { get; set; }
 
         private void TagArmour()
         {
